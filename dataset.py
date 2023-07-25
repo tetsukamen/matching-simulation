@@ -102,5 +102,5 @@ def generate_data(size: int, gender: str):
 
 
 size = 50
-generate_data(size, "男").to_csv("male.csv", index=False)
-generate_data(size, "女").to_csv("female.csv", index=False)
+generate_data(size, "男").to_csv("dataset/male.csv", index=False)
+generate_data(size, "女").to_csv("dataset/female.csv", index=False)
