@@ -4,6 +4,7 @@
 import random
 import numpy as np
 import pandas as pd
+import shutil
 
 appearance_distb = pd.DataFrame(
     {
@@ -101,6 +102,14 @@ def generate_data(size: int, gender: str):
     )
 
 
-size = 50
-generate_data(size, "男").to_csv("dataset/male.csv", index=False)
-generate_data(size, "女").to_csv("dataset/female.csv", index=False)
+size = 500
+iter = 100
+
+shutil.rmtree("dataset")
+shutil.os.mkdir("dataset")
+
+for i in range(iter):
+    num = str(i).zfill(2)
+    shutil.os.mkdir(f"dataset/{num}")
+    generate_data(size, "男").to_csv(f"dataset/{num}/male.csv", index=False)
+    generate_data(size, "女").to_csv(f"dataset/{num}/female.csv", index=False)
