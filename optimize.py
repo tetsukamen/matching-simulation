@@ -85,7 +85,7 @@ for result in results.items():
     male_pref_rank_idx.append(male_idx)
     male_pref_rank_value.append(pref_rank)
 male_pref_rank = pd.DataFrame(
-    {"male_idx": male_pref_rank_idx, "male_pref_rank": male_pref_rank_value}
+    {"Male_idx": male_pref_rank_idx, "Male_pref_rank": male_pref_rank_value}
 )
 male_pref_rank.to_csv("results/male_pref_rank.csv", index=False)
 
@@ -99,7 +99,7 @@ for result in results.items():
     female_pref_rank_idx.append(female_idx)
     female_pref_rank_value.append(pref_rank)
 female_pref_rank = pd.DataFrame(
-    {"female_idx": female_pref_rank_idx, "female_pref_rank": female_pref_rank_value}
+    {"Female_idx": female_pref_rank_idx, "Female_pref_rank": female_pref_rank_value}
 )
 female_pref_rank.to_csv("results/female_pref_rank.csv", index=False)
 
@@ -107,12 +107,12 @@ female_pref_rank.to_csv("results/female_pref_rank.csv", index=False)
 # save result
 def save_matching_result_to_csv(matchings, file_path):
     with open(file_path, "w", newline="") as csvfile:
-        fieldnames = ["Male", "Female"]
+        fieldnames = ["Male_idx", "Female_idx"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
         for male, female in matchings.items():
-            writer.writerow({"Male": male, "Female": female})
+            writer.writerow({"Male_idx": male, "Female_idx": female})
 
 
 save_matching_result_to_csv(results, "results/matching_result.csv")
