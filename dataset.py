@@ -91,13 +91,13 @@ def generate_data(size: int, gender: str):
     return pd.DataFrame(
         {
             "V_apr": generate_appearance(size),
-            "V_inc": generate_income(size, "男"),
-            "V_age": generate_age(size, "男"),
+            "V_inc": generate_income(size, gender),
+            "V_age": generate_age(size, gender),
             "V_per": generate_personality(size),
-            "W_apr": generate_weight(size, "男", "容姿"),
-            "W_inc": generate_weight(size, "男", "収入"),
-            "W_age": generate_weight(size, "男", "年齢"),
-            "W_per": generate_weight(size, "男", "性格"),
+            "W_apr": generate_weight(size, gender, "容姿"),
+            "W_inc": generate_weight(size, gender, "収入"),
+            "W_age": generate_weight(size, gender, "年齢"),
+            "W_per": generate_weight(size, gender, "性格"),
         }
     )
 
